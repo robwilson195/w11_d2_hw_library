@@ -60,6 +60,32 @@ public class LibraryTest {
         assertEquals(2, library2.bookCount());
     }
 
+    @Test
+    public void canHaveGenreSpread() {
+
+        int actual = library2.getGenreSpread().get("Horror");
+        assertEquals(2, actual);
+    }
+
+    @Test
+    public void genreSpreadUpdatesOnAddition() {
+        library1.addBook(book1);
+        int actual1 = library1.getGenreSpread().get("Horror");
+        assertEquals(1, actual1);
+        library1.addBook(book4);
+        int actual2 = library1.getGenreSpread().get("Horror");
+        assertEquals(2, actual2);
+    }
+
+    @Test
+    public void genreSpreadUpdatesOnRemoval() {
+        int actual1 = library2.getGenreSpread().get("Horror");
+        assertEquals(2, actual1);
+        library2.removeBook();
+        int actual2 = library2.getGenreSpread().get("Horror");
+        assertEquals(1, actual2);
+    }
+
 }
 
 
