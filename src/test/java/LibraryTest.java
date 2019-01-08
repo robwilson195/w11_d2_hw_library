@@ -34,4 +34,64 @@ public class LibraryTest {
         assertEquals(0, library1.bookCount());
     }
 
+    @Test
+    public void canStarWithBooks() {
+        assertEquals(3, library2.bookCount());
+    }
+
+    @Test
+    public void canAddBook() {
+        library1.addBook(book1);
+        assertEquals(1, library1.bookCount());
+    }
+
+    @Test
+    public void wontAddBookAtCapacity() {
+        library1.addBook(book1);
+        library1.addBook(book2);
+        library1.addBook(book3);
+
+        assertEquals(2, library1.bookCount());
+    }
+
+    @Test
+    public void canRemoveBook() {
+        library2.removeBook();
+        assertEquals(2, library2.bookCount());
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

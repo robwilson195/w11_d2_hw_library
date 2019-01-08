@@ -20,4 +20,18 @@ public class Library {
     public int bookCount() {
         return collection.size();
     }
+
+    public boolean atCapacity () {
+        return this.collection.size() >= this.capacity;
+    }
+
+    public void addBook(Book book1) {
+        if (!atCapacity()) {
+            this.collection.add(book1);
+        }
+    }
+
+    public Book removeBook() {
+        return this.collection.remove(0);
+    }
 }
